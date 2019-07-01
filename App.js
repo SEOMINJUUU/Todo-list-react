@@ -1,83 +1,35 @@
-import React from 'react';
-import './App.css';
-import { FaTrashAlt, FaCheck, FaPlus, FaTimes } from "react-icons/fa"
+import React from 'react'
+import './App.css'
+import Title from './components/Title'
+import Content from './components/Content.js'
 
-class Task  extends React.Component {
-  render() {
-    return(
-      <li>Something to do{}<button className="btn btn-red delete"> <FaTimes /> </button></li>
-    );
-  }
-}
-
-class List extends React.Component {
-  renderTask() {
-    return <Task />;
-  }
-  render() {
-    //const tasks;
-    return(
-      <ul id="list">
-        <Task />
-        <Task />
-        {}
-      </ul>
-    );
-  }
-}
-
-class Control extends React.Component {
-  render() {
-    return(
-      <div id="control">
-        <button className="btn btn-red"><FaTrashAlt /> Clear All</button>
-        <button className="btn btn-orange"><FaCheck /> Clear Completed</button>
-      </div>
-    );
-  }
-}
-
-class Input extends React.Component {
-  render() {
-    return(
-      <div id="input">
-        <input type="text" value="New tesk" />
-        <button className="btn btn-blue"><FaPlus /> Add </button>
-      </div>
-    );
-  }
-}
-
-class Header extends React.Component {
-  componentDidMount() {
-    document.title = "Todo-list";
-  }
-  constructor(props) {
-    super(props);
+class App extends React.Component {
+  constructor (props) {
+    super(props)
     this.state = {
-      leftTask: 0,
+      leftTasks: 0
     }
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  render() {
-    return(
-      <div id="header">
-        <span className="h1">Tasks </span>
-        ({this.state.leftTask})
+  componentDidMount () {
+    document.title = 'Todo-list'
+  }
+
+  handleChange (num) {
+    this.setState({
+      leftTasks: num + 1
+    })
+  }
+
+  render () {
+    return (
+      <div className='App'>
+        <Title leftTask={this.state.leftTasks} />
+        <Content onChange={this.handleChange} />
       </div>
-    );
+    )
   }
 }
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Input />
-      <Control />
-      <List />
-    </div>
-  );
-}
-
-export default App;
+export default App

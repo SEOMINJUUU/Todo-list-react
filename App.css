@@ -1,17 +1,17 @@
 body {
   background-color: lightsteelblue;
 }
+
 .App {
   display: inline-block;
   width: 70%;
   margin: 1% 15%;
   padding: 15px;
-  border: 1px solid white;
   background-color: white;
   box-shadow: 0 0 10px rgb(150, 150, 150);
 }
 
-#header {
+#title {
   margin: 10px 0;
   font-size: 28px;
   font-weight: 500;
@@ -27,20 +27,27 @@ body {
 #input {
   width: 100%;
   margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 input[type="text"] {
   padding: 0 5px;
   margin: 0;
-  width: 546px;
+  width: 925px;
   height: 30px;
   font-size: 14px;
+}
+
+input::placeholder {
   color: lightgrey;
+  font-weight: 700;
 }
 
 .btn {
   position: relative;
   margin: 1px;
+  padding: 0 15px;
   height: 32px;
   float: right;
   color: white;
@@ -73,7 +80,7 @@ input[type="text"] {
 li {
   list-style: none;
   padding: 10px;
-  margin: 5px 0; 
+  margin: 5px 0;
   font-size: 14px;
   font-weight: 700;
   border: 1px solid lightgrey;
@@ -81,8 +88,8 @@ li {
 }
 
 .delete {
-  width: 40px;
-  height: 40px;
+  width: 39px;
+  height: 39px;
   bottom: 12px;
   left: 12px;
 }
